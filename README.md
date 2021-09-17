@@ -9,14 +9,14 @@
 ## 구조 분해 할당으로 props 사용해보기
 >구조 분해 할당을 사용하면 점 연산자를 사용하지 않아도 된다.
 >데이터의 개수가 많아질수록 구조 분할 할당을 사용하는 것이 편리
----javascript
+```javascript
 import rReact from 'react';
 function Food(props){
     {fav} = props;
     return <h1>I Like {fav}</h1>;
 }
+```
 
----
 
 [ 09월 08일 ]
 ## 리액트 설치 명령어
