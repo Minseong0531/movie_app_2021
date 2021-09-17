@@ -1,6 +1,24 @@
 # 연민성 201840216
 
-[ 09월 08일]
+[ 09월 15일 ]
+
+## 세 번째 리액트 기초 개념: props
+>컴포넌트에서 컴포넌트로 전달하는 데이터를 뜻함
+>함수의 매개변수 역할을 하는 것
+
+## 구조 분해 할당으로 props 사용해보기
+>구조 분해 할당을 사용하면 점 연산자를 사용하지 않아도 된다.
+>데이터의 개수가 많아질수록 구조 분할 할당을 사용하는 것이 편리
+---javascript
+import rReact from 'react';
+function Food(props){
+    {fav} = props;
+    return <h1>I Like {fav}</h1>;
+}
+
+---
+
+[ 09월 08일 ]
 ## 리액트 설치 명령어
 >npx create-react-app movie_app_2021
 ## 실행
