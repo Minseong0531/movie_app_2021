@@ -1,4 +1,30 @@
 # 연민성 201840216
+[ 09월 29일]
+
+## prop-type 설치하기
+
+>터미널에서 다음 명령을 입력해서 prop-types를 설치 해보기.
+>npm install prop-types
+
+## 정상 설치 여부 확인 방법
+
+>Package.json 파일을 열어 dependencies 키에 있는 값을 살펴보자.
+>Prop-types가 등록되어 있으면 설치가 정상적으로 된 것이다.
+
+## Prop-types는?
+> 컴포넌트가 전달받은 props가 원하는 값인지 확인해 주는 역할을 한다.
+
+>prop-types를 통해 미리 특정 컴포넌트는 반드시 picure props가 전달되야 한다고 정의 할 수 있다.
+
+## state로 숫자 증감 기능 만들어 보기.
+
+>props는 정적인 데이터만 다룰 수 있다.
+>state는 반대로 동적인 데이터를 다루기 위해 사용된다.
+>state는 클래스형 컴포넌트에서 사용된다.
+
+## 클래스형 컴포넌트 작성하기
+## App클래스가 React.Component 클래스를 상속받도록 하기.
+
 
 [ 09월 15일 ]
 
