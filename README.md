@@ -1,5 +1,54 @@
 # 연민성 201840216
 
+[ 10월 13일]
+## 무비 컴포넌트 만들기
+
+>컴포넌트의 기본 골격을 작성한다.
+```javascript
+import PropTypes from 'prop-types';
+
+function Movie() {
+    return <h1></h1>;
+}
+
+Movie.propTypes = {};
+
+export defalut Movie;
+```
+M>ovie에 넘어와야 하는 영화 데이터를 정의하고, 관리하기 위해 prop-types을 사용.
+
+>무비 컴포넌트는 state가 필요x 클래스형 컴포넌트가 아닌 함수형으로 작성
+
+>list_movies.json을 접속해서 데이터를 확인
+
+## 무비 프롭 타입 작성
+
+>id를 Movie.propTypes 추가
+>id의 자료형은 Number, 반드시 있어야 한다.
+
+```javascript
+Movie.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.number.isRequired,
+    summary: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    poster: PropTypes.number.isRequired
+};
+
+```
+>poster props는 영화 포스터 이미지 주소를 저장하기 위한 것
+
+## 무비 컴포넌트에서 props를 추가하고 출력해보기
+> Movie 컴포넌트에서 id,title,year,summary,poster props를 받아 출력할 수 있도록 수정하기
+
+>App 컴포넌트에서 Movie컴포넌트를 그릴 때 title만 우선 출력하도록 설정
+
+```javascript
+function Movie({id,title,year,summary,poster}){
+    return <h4>{title}</h4>;
+}
+```
+
 [ 10월 6일]
 ## axios 설치하기
 >자바스크립트에서는 데이터를 로딩 할 때 fetch()함수를 사용한다.
