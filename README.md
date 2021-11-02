@@ -1,5 +1,55 @@
 # 연민성 201840216
 
+[ 10월 27일]
+## 1. react-router-dom 설치하기
+>명령어
+>npm install react-router-dom
+
+## 2. 컴포넌트 폴더에 Movie 컴포넌트 옮기기
+
+## 3. routes 폴더에 라우터가 보여줄 화면 만들기
+>routes 폴더를 만들고 홈.js와 어바웃.js파일을 생성한다.
+
+## 4. home.js 수정
+> app.js내용을 Home.js로 복사하고 컴포넌트 이름을 홈으로 수정한다.
+
+## About.hs 내용 ex)
+
+```javascript
+    function About(props) {
+        consele.log(props);
+        return(
+            <div className="about-container">
+            <span>
+            내용
+            </span>
+            <span>- 내용2</span>
+            </div>
+        )
+    }
+
+    export default About
+```
+>내용은 이 곳에 앱의 설명이나 자기 소개 등으로 채워 넣기.
+>라우터 테스트는 localhost:300/#에 path props로 전달했던 값 /about을 붙여 다시 접속한다.
+
+## 홈 컴포넌트를 위한 라우트 컴포넌트 추가하기
+
+```javascript
+
+function App() {
+        return(
+            <HashRouter>
+            <Route path='/' component={Home} />
+            <Route path='/about' component={About} />
+            </HashRouter>
+        )
+    }
+
+export default App
+```
+>"/"으로 입력한 이유는 로컬호스트:3000에 접속하면 기본으로 보여줄 컴포넌트를 홈 컴포넌트로 하기 위해서이다.
+
 [ 10월 13일]
 ## 무비 컴포넌트 만들기
 
