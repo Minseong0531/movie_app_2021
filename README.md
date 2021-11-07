@@ -1,4 +1,36 @@
 # 연민성 201840216
+[ 11월 3일]
+
+## Navigation 컴포넌트 만들기
+>home과 about이라는 2개의 버튼을 만들고 각각 벙튼을 눌렀을 때 해당 화면이 보이도록 설정
+>먼저 components폴더에 Navigation.js파일을 만들고 2개의 태그를 반환하도록 작성
+
+## 네비게이션 컴포넌트 앱 컴포넌트에 포함시키기
+>App컴포넌트에 Navigation을 임포트 시키고, <HashRoute>에서 불러오게 한다.
+>앱을 실행하면 Navigation이 출력되는 것을 확인할 수 있다.
+
+## Home 링크 눌러 보기
+>Home링크를 눌러본다.
+>react-router-dom의 Link컴포넌트를 사용하면 된다.
+
+## a 태그 Link 컴포넌트로 바꾸기
+>Navigation 컴포넌트에 Link 컴포넌트를 import하고 a 태그를 Link 컴포넌트로 바꾼다.
+
+>href속성은 to로 수정
+
+>앱을 실행하고 링크를 클릭해 본다. 페이지 전체 고칠 문제가 해결된 것을 확인 가능
+
+## Navigation 컴포넌트 위치 다시 확인하기
+>Link, Router 컴포넌트는 반드시 HashRouter안에 포함되어야 한다.
+
+## 디테일 컴포넌트 만들기
+>Detail 컴포넌트를 routes폴더에 추가한다.
+>Detail 컴포넌트에서 Movie컴포넌트의 Link 컴포넌트가 보내준 영화 데이터를 확인할 수 있도록 콘솔을 작성한다
+
+## Movie 컴포넌트에 Link 컴포넌트와 Route컴포넌트 추가하기
+
+
+
 
 [ 10월 27일]
 ## 1. react-router-dom 설치하기
