@@ -1,18 +1,21 @@
-function App() {
-  return (
-    //<div className="App" />
-    <div>
-      Hello React
-      <Movie />
-    </div>
-    
-  );
-  
-  }
-function Movie(){
-  return (
-      <h3>I love potato</h3> //html이 아닌 jsx
-  );
+
+import { HashRouter,Route } from 'react-router-dom'
+
+import './App.css'
+import About from './routes/About'
+import Home from './routes/Home'
+import Navigation from './components/Navigation'
+import Detail from './routes/Detail'
+
+function App(){
+    return(
+        <HashRouter>
+            <Navigation />
+            <Route path="/" exact={true} component={Home}/>
+            <Route path="/about"  component={About} />
+            <Route path="/movie-detail" component={Detail} />
+        </HashRouter>
+    )
 }
 
 export default App;
