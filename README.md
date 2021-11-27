@@ -1,6 +1,100 @@
 # 연민성 201840216
 
 [ 11월 24일]
+## 배포. github pages deployPermalink
+1. `npm i gh-pages`
+
+2. packages.json에 “homepage” : “유저명.github.io/프로젝트명/” 추가
+맨 뒤에 ‘/’ 필수
+
+3. `npm run build`
+
+4. packages.json의 “scripts”에서 “deploy” : ”gh-pages -d build” 추가. “predeploy” : “npm run build”도 추가.
+npm run build를 입력하면 자동으로, predeploy도 실행될 것
+
+## 라우팅Permalink
+# 라우팅 세팅을 하기 위한 사전 설정 
+
+1. react-route-dom : 네비게이션을 만들어주는 패키지
+
+2. routes, components 디렉토리를 추가해줌.
+
+3. components에 만들었던 Movie.css, Movie.js 파일 넣기
+
+4. routes 폴더에 About.js Home.js 추가하고, App.js의 코드들을 Home.js에 복사. App.js 의 초기화면을 Home.js에 세팅할 것이기 때문
+
+# App.js에 라우트 생성해주기 
+
+1. 한 개의 prop : 렌더링할 스크린, 한 개의 prop 뭘할지 정해줌.
+
+```javascript
+<HashRouter>
+  <Route path="/" exact={true} component={Home} />
+  <Route path="/about" component={About} />
+</HashRouter>
+```
+> path를 통해서 경로 세팅, component를 통해서 렌더링할 컴포넌트를 전달.
+
+2. 리액트 라우터는 url을 가져와서 비교하고, match가 되면 보여준다. exact={true}를 설정해주지 않으면, `/`가 라우트로 여겨지고, `/`도 그리고 `about`도 그리게 되며, 동시에 두개를 렌더링하는 결과를 보여주게 된다. 이것에 대한 해결책은 `exact=true`를 전달해주는 것이다. url이 `/`때만 정확하게 home을 렌더링 해주고, `/something~~`인 url이라면 무시하게 된다. exact는 정확하게 이 URL이 아니면 렌더링을 해주지 않는다를 의미한다.
+
+# 네비게이션 만들기 
+
+1. 단순하게 navigation을 ‘a’ 태그로 설정하면, 작동을하지 않는다. => html은 전체 페이지를 새로고침 시켜버리기 때문이다. => (sol) link를 import하자
+
+2. Navigation.js 파일에서 Navigation을 link component를 이용해서 만든다.
+
+```javascript
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Navigation() {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+    </div>
+  );
+}
+
+export default Navigation;
+```
+3. 알아두어야할 점
+
+- Navigation은 Router의 안에 존재해야 한다. Navigation 내의 Link 컴포넌트가 라우터 안에 존재해야 하기 때문이다.
+- HashRouter 대신, Browserrouter는 ‘#’같은 것이 없다. 즉, BrowserRouter를 사용해도 무방하다. 하지만, github Pages에서 설정하는 것이 어렵기 때문에 현 프로젝트에서는 HashRouter를 사용한다.
+
+# About 페이지, Movie 추가 페이지 만들기 - route props에 대해서
+
+>- route를 거치면, props에 history, location과 같은 기본적인 props가 세팅되어서 컴포넌트 간 이동된다.
+
+>- MovieDetail.js 파일을 만든다.
+
+>- 라우터 설정에서, Home 컴포넌트에서 -> MovieDetail 컴포넌트로 이동할 때, url로 movie id값도 같이 보낼 수 있도록 설정한다.
+
+>- Link 컴포넌트를 이용해서, 값을 던질 때, state : { 던질 변수들 } 을 세팅해서 보내준다.
+
+```javascript
+//App.js 파일
+
+<Routepath=“/movie/:id“component={MovieDetail}/>
+```
+# MovieDetail 페이지 수정 
+>- Detail Page를 Material UI를 이용해서 표로 생성하였다.
+
+>- 추가적으로 Button을 구성하고, 뒤로 가기와 상세검색하기 버튼을 만들었다.
+
+>- 상세검색하기는 다음과 같이 구성하였다.
+
+(1) MovieDetail.js에서 RedirectPage.js로 이동할 때, url에 파라미터로 title을 달고, 페이지 이동하도록 하였다.
+
+(2) RedirectPage.js의 componentDidMount에서 window.open을 호출한 후에, 상세검색 결과로 이동할 수 있도록 하였다. 이 때, 상세검색은 새 탭으로 이동할 수 있도록 하였다.
+
+>설정을 해주기 위해서, Router 설정 js 파일에서, Route의 path를 새로 추가해주었다.
+```javascript
+<Route path=”/search/:title” component={RedirectPage} />
+```
+>render에서는 alert창을 띄워주고, 리다이렉션 후, 남은 페이지에 `홈으로 이동` 버튼과 영화의 제목이 표출될 수 있도록 구현하였다.
+
 [ 11월 17일]
 
 ## React 엘리먼트에서 이벤트를 처리하는 방식은 DOM 엘리먼트에서 이벤트를 처리하는 방식과 매우 유사합니다. 몇 가지 문법 차이는 다음과 같다.
