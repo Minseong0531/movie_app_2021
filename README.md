@@ -31,7 +31,7 @@ JavaScript에서 true && expression은 항상 expression으로 평가되고 fals
 따라서 && 뒤의 엘리먼트는 조건이 true일때 출력이 됨 조건이 false라면 React는 무시하고 건너뜀.
 
 falsy 표현식을 반환하면 여전히 && 뒤에 있는 표현식은 건너뛰지만 falsy 표현식이 반환된다는 것에 주의, 아래 예시에서, <div>0</div>이 render 메서드에서 반환
-
+```javascript
 render() {
   const count = 0;
   return (
@@ -40,10 +40,10 @@ render() {
     </div>
   );
 }
-조건부 연산자로 If-Else구문 인라인으로 표현하기
-엘리먼트를 조건부로 렌더링하는 다른 방법은 조건부 연산자인 condition ? true: false를 사용하는 것입니다.
+````
+## 조건부 연산자로 If-Else구문 인라인으로 표현하기
+엘리먼트를 조건부로 렌더링하는 다른 방법은 조건부 연산자인 condition ? true: false를 사용하는 것.
 
-아래의 예시에서는 짧은 구문을 조건부로 렌더링합니다.
 
 ```javascript
 render() {
@@ -56,7 +56,7 @@ render() {
 }
 
 ```
-가독성은 좀 떨어지지만, 더 큰 표현식에도 이 구문을 사용
+## 가독성은 좀 떨어지지만, 더 큰 표현식에도 이 구문을 사용
 ```javascript
 render() {
   const isLoggedIn = this.state.isLoggedIn;
@@ -72,7 +72,7 @@ render() {
 ```
 
 
-컴포넌트가 렌더링하는 것을 막기
+## 컴포넌트가 렌더링하는 것을 막기
 가끔 다른 컴포넌트에 의해 렌더링될 때 컴포넌트 자체를 숨기고 싶을 때가 있을 수 있다. 이때는 렌더링 결과를 출력하는 대신 null을 반환하면 해결할 수 있다.
 
 
